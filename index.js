@@ -1,16 +1,23 @@
-const express=require('express');
-const app=express();
-const ejs=require('ejs');
-const PORT=process.env.PORT||3000;
+const express = require('express')
+const path= require('path')
+const app = express()
+const PORT = process.env.PORT || 3000
 
-app.set('view engine','ejs');
+app.set('view engine', 'ejs')
 
-app.get('/',(req,res)=>{
-    res.render('index');
-});
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(__dirname + '/public'));
+
+app.get('/', (req, res) => {
+  res.render('index')
+})
+
+app.get('/about', (req, res) => {
+  res.render('about')
+})
 
 
 
-app.listen(PORT,(err)=>{
-    console.log("server is woring in port 8000");
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`)
 })
