@@ -1,10 +1,14 @@
 const express=require('express');
 const app=express();
+const ejs=require('ejs');
 
+
+app.set('view engine','ejs');
 
 app.get('/',(req,res)=>{
-    res.send('hello i am working fine');
-})
+    res.render('index');
+});
+
 
 
 app.listen(8000,(err)=>{
