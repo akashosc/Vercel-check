@@ -1,7 +1,7 @@
 const express=require('express');
 const app=express();
 const ejs=require('ejs');
-
+const PORT=process.env.PORT||3000;
 
 app.set('view engine','ejs');
 
@@ -11,6 +11,6 @@ app.get('/',(req,res)=>{
 
 
 
-app.listen(8000,(err)=>{
+app.listen(PORT,(err)=>{
     console.log("server is woring in port 8000");
 })
